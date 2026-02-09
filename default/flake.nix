@@ -25,19 +25,11 @@
       perSystem =
         {
           config,
-          lib,
           pkgs,
-          system,
           ...
         }:
         {
-          devShells = {
-            default = pkgs.mkShell {
-              name = "default";
-              inputsFrom = [ config.treefmt.build.devShell ];
-              packages = with pkgs; [ ];
-            };
-          };
+          devShells.default = pkgs.callPackage ./nix/shell.nix { inherit config; };
           treefmt = import ./nix/treefmt.nix;
         };
     };
