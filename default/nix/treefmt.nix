@@ -6,5 +6,6 @@
     nixfmt.enable = true;
     rumdl-check.enable = true;
     statix.enable = true;
+    typos.enable = true;
   };
 }
